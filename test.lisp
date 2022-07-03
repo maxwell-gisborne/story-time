@@ -59,7 +59,7 @@
    :second (- (getf time1 :second) (getf time2 :second))))
 
 
-;; --- The Place and moveing stuff 
+;; --- The Place and moving stuff 
 (defun make-place (&key (name :Anonymouse)
 		     (description :Non-descript)
 		        (modes NIL))
@@ -83,27 +83,27 @@
 	:clothing clothing))
 
 (defun describe-health (user)
-  (print-line "describing health")
+  (print-line "You think about how you are feeling")
   (let ((health (getf user :health)))
     (if (equal health NIL)
 	(print-line "good and nice and healthy :^)")
 	(progn
-	  (if (member :headake health)
-	      (print-line "I have a huge headake :("))
-	  (if (member :open-woond health)
-	      (print-line "I have an open woond"))
+	  (if (member :headache health)
+	      (print-line "You have a pounding headache"))
+	  (if (member :open-wound health)
+	      (print-line "You have an open wound. Wow thats a lot of blood!"))
 	  (if (member :dehydrated health)
-	      (print-line "I am dehidgrated"))))))
+	      (print-line "You are a bit dehydrated"))))))
 
-(defparameter *the-user* (make-user :health '(:headake :dehydrated)
+(defparameter *the-user* (make-user :health '(:headche :dehydrated)
 				    :skills '()
 				    :equipment '()
 				    :clothing '() ))
 
-;; So we have seanse, descriptions of seinces, they take place in locations, 
+;; So we have scenes, descriptions of scenes, they take place in locations, 
 
 (defparameter The-Void (make-place :name "The Void"
-		 		   :description "Iternal empty Nothingness"))
+		 		   :description "Eternal empty Nothingness"))
 
 (defvar *current-location* The-Void)
 (defun rest-location () (setf *current-location* initial-location))
@@ -121,7 +121,7 @@
 
 (defun script ()
   (progn
-    (print-chapter-heading "wellcome to ~story~ time")
+    (print-chapter-heading "welcome to ~story~ time")
     (setf *current-location* initial-location)
     ))
 
